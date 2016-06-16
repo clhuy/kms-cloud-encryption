@@ -1,0 +1,5 @@
+= envy
+
+Generate this with
+    envy rdoc
+After you have described your command line interface
