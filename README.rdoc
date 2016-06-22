@@ -1,6 +1,3 @@
 = envy
 
-Describe your project here
-
-:include:envy.rdoc
-
+Server-side data encryption and cloud storage
