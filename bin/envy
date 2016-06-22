@@ -44,7 +44,7 @@ command :write do |c|
     # raise "that command made no sense"
 
     # AWS access_key_id, secret_key_id
-    credentials = Aws::Credentials.new('AKIAIWEEFR2JUOKQW7WQ', '0F7WYVaQiiIDxSf2H3N24XTh9gnxobXEwGRszLRB', nil)
+    credentials = Aws::Credentials.new(ENV['AWS_ACCESS_KEY'], ENV['AWS_SECRET_KEY'], nil)
 
     ######################
     # encrypting the file
@@ -64,12 +64,9 @@ command :write do |c|
       credentials: credentials
     )
 
-    # KMS master key
-    key_id = 'arn:aws:kms:us-east-1:369630458899:key/f01a8069-9c21-49e2-a1b7-43bc7cc0c382'
-
     # encrypting the text
     enc = kms_client.encrypt({
-      key_id: key_id,
+      key_id: ENV['key_id'],
       plaintext: in_file
       })
 
@@ -104,7 +101,7 @@ arg :outfile => :required
 command :read do |c|
   c.action do |global_options,options,args|
     # AWS access_key_id, secret_key_id
-    credentials = Aws::Credentials.new('AKIAIWEEFR2JUOKQW7WQ', '0F7WYVaQiiIDxSf2H3N24XTh9gnxobXEwGRszLRB', nil)
+    credentials = Aws::Credentials.new(ENV['AWS_ACCESS_KEY'], ENV['AWS_SECRET_KEY'], nil)
 
     #######################################
     # retreiving the encrypted file from S3
