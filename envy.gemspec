@@ -1,6 +1,6 @@
 # Ensure we require the local version and not one we might have installed already
 require File.join([File.dirname(__FILE__),'lib','envy','version.rb'])
-spec = Gem::Specification.new do |s| 
+spec = Gem::Specification.new do |s|
   s.name = 'envy'
   s.version = Envy::VERSION
   s.author = 'Your Name Here'
@@ -15,7 +15,7 @@ spec = Gem::Specification.new do |s|
   s.extra_rdoc_files = ['README.rdoc','envy.rdoc']
   s.rdoc_options << '--title' << 'envy' << '--main' << 'README.rdoc' << '-ri'
   s.bindir = 'bin'
-  s.executables << 'envy'
+  s.executables << 'envy' 
   s.add_development_dependency('rake')
   s.add_development_dependency('rdoc')
   s.add_development_dependency('aruba')
